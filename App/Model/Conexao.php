@@ -15,7 +15,8 @@ class Conexao {
         // Condicional
         if(!isset(self::$instance)) {
             // CRIANDO A CONEXÃO COM O BANCO ATRAVÉS DO PDO, POIS A CONEXÃO AINDA NAO FOI INSTACIADA
-            self::$instance = new PDO('mysql:host=localhost;dbname=crud-poo-php;charset=utf8','root','');
+            // Barra invertida para que o PHP entenda que eh uma classe nativa
+            self::$instance = new \PDO('mysql:host=localhost;dbname=crud-poo-php;charset=utf8','root','');
         }
         // RETORNANDO A CONEXÃO QUE SE N TIVESSE UMA, FOI CRIADA ACIMA NO "if"
         return self::$instance;
