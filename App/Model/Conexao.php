@@ -16,9 +16,8 @@ class Conexao {
         if(!isset(self::$instance)) {
             // CRIANDO A CONEXÃO COM O BANCO ATRAVÉS DO PDO, POIS A CONEXÃO AINDA NAO FOI INSTACIADA
             self::$instance = new PDO('mysql:host=localhost;dbname=crud-poo-php;charset=utf8','root','');
-        }else{
-            // RETORNANDO A CONEXÃO POIS JÁ EXISTE UMA INSTANCIA DA MESMA
-            return self::$instance;
         }
+        // RETORNANDO A CONEXÃO QUE SE N TIVESSE UMA, FOI CRIADA ACIMA NO "if"
+        return self::$instance;
     }
 }
