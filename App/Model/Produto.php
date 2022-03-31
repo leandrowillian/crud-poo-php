@@ -1,11 +1,22 @@
 <?php
 
+// Definindo o namespace
+namespace App\Model;
+
 class Produto {
 
     // campos da tabela
-    private $nome, $descricao;
+    private $id, $nome, $descricao;
 
     // getters e setters
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
     public function getNome() {
         return $this->nome;
     }

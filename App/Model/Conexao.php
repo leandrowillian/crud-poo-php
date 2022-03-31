@@ -1,5 +1,8 @@
 <?php
 
+// Definindo o namespace
+namespace App\Model;
+
 // Utilizando padrão singleton, q é criar apenas uma instancia de conexão no nosso projeto
 
 class Conexao {
