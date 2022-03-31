@@ -14,7 +14,7 @@ class ProdutoDao {
 
         // QUERY PARA INSERÇÃO DE NOVO PRODUTO NO BANCO DE DADOS
         $sql  = "INSERT INTO produtos (nome, descricao) VALUES (:n, :d)";
-        // Instanciando a classe de conexao 
+        // Instanciando a classe de conexao || PODEMOS INSTANCIAR DIRETO NO "prepare()"
         $conn = Conexao::getConn();
         // Preparando a query com a função prepare do PDO
         $stmt = $conn->prepare($sql);
@@ -28,6 +28,20 @@ class ProdutoDao {
     }
 
     public function read() {
+
+        $sql = "SELECT * FROM produtos";
+        // Instanciando e chamando o método prepare
+        $stmt = Conexao::getConn()->prepare($sql);
+        // executando a query
+        $stmt->execute();
+
+        // Verificando se o execute/consulta retornou algum resultado
+        if($stmt->rowCount() > 0){
+            // retornando o resultado
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        }
+
 
     }
 

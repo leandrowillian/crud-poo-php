@@ -9,10 +9,15 @@ use App\Model\ProdutoDao;
 
 // Teste autoload
 $produto = new Produto();
-$produto->setNome("Headset Edfier");
-$produto->setDesc("Headset Edfier, USB 7.1, Com microfone");
+// $produto->setNome("Headset Edfier");
+// $produto->setDesc("Headset Edfier, USB 7.1, Com microfone");
 
 // Instanciando a classe ProdutoDAO
 $produtoDao = new ProdutoDao();
+
 // Chamando o método responsável pro inserir o produto no banco de dados e passando o objeto Produto como parametro
-$produtoDao->create($produto);
+// $produtoDao->create($produto);
+
+// Select nos produtos com o método "read"
+print_r($produtoDao->read());
+
