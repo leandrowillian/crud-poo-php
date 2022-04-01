@@ -26,13 +26,23 @@
 
 // UPDATE - Atualizando um produto
     // Setando os novos dados para o produto de id 7
-        $produto->setNome("Headset Alienware");
-        $produto->setDesc("Headset Alienware, USB 7.1, Com microfone.");
-        $produto->setId(7);
+        // $produto->setNome("Headset Alienware");
+        // $produto->setDesc("Headset Alienware, USB 7.1, Com microfone.");
+        // $produto->setId(7);
     // Realizando um try/catch para pegar a exception caso dê erro
-        try{
-            $produtoDao->update($produto);
-        }catch (Exception $e){
-            echo "Mensagem: ".$e;
-        }
+        // try{
+        //     $produtoDao->update($produto);
+        // }catch (Exception $e){
+        //     echo "Mensagem: ".$e;
+        // }
+
+
+// DELETE - Deletando um produto pelo Id
+    try{
+        $produtoDao->delete(7);
+    }catch (Exception $e){
+        echo "Mensagem: " .$e->getMessage();
+        echo "<br>";
+        echo "Cód Erro: " .$e->getCode();
+    }
 

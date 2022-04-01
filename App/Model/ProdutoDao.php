@@ -56,7 +56,7 @@ class ProdutoDao {
         $stmt->bindValue(":id", $p->getId());
         // executando a query
         if(!$stmt->execute()){
-            throw new Exception("Erro ao atualizar produto, tente novamente!");
+            throw new \Exception("Erro ao atualizar produto, tente novamente!");
         }else{
             echo "Produto atualizado com sucesso!";
         }
@@ -64,6 +64,19 @@ class ProdutoDao {
     }
 
     public function delete($id) {
+
+        $sql = "DELETE FROM produtos WHERE id = :id";
+
+        $stmt = Conexao::getConn()->prepare($sql);
+
+        $stmt->bindValue(":id", $id);
+
+        // executando a query com tratamento pelo try/catch
+        if($stmt->execute()){
+            echo "Produto deletado com sucesso!";
+        }else{
+            throw new \Exception("Erro ao deletar produto, tente novamente", 121);
+        }
 
 
     }
