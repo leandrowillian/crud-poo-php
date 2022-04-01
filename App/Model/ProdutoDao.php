@@ -47,9 +47,24 @@ class ProdutoDao {
 
     public function update(Produto $p) {
 
+        $sql = "UPDATE produtos SET nome = :n, descricao = :d WHERE id = :id";
+        // Instanciando a conexão e chamando o método prepare
+        $stmt = Conexao::getConn()->prepare($sql);
+        // Tratando os bindValues
+        $stmt->bindValue(":n", $p->getNome());
+        $stmt->bindValue(":d", $p->getDesc());
+        $stmt->bindValue(":id", $p->getId());
+        // executando a query
+        if(!$stmt->execute()){
+            throw new Exception("Erro ao atualizar produto, tente novamente!");
+        }else{
+            echo "Produto atualizado com sucesso!";
+        }
+
     }
 
     public function delete($id) {
+
 
     }
 
